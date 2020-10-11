@@ -11,7 +11,7 @@ checkbtn.addEventListener('click', (e) => {
     console.log(cityName);
     // Async Function Starts for fetch data using API
     async function Data() {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},india&appid=e41987015f689f0e1029a1ea883909b7`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},india&appid=e41987015f689f0e1029a1ea883909b7`);
         const user = await response.json();
         return user;
     }
