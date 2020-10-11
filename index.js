@@ -27,29 +27,44 @@ checkbtn.addEventListener('click', (e) => {
         let showweather = document.getElementById('showweather');
         let tempIcon = document.getElementById('tempIcon');
         let showcityName = document.getElementById('cityName');
-        showcityName.innerHTML = cityName;
-        showTemp.innerText = `${tempinCelsius}°C`;
-        showweather.innerText = `${weather["main"]}`;
-        if (weather["id"] < 250) {
-            tempIcon.src = './icons/storm.svg';
-        }
-        else if (weather["id"] < 350) {
-            tempIcon.src = './icons/drizzle.svg';
-        }
-        else if (weather["id"] < 550) {
-            tempIcon.src = './icons/rain.svg';
-        }
-        else if (weather["id"] < 650) {
-            tempIcon.src = './icons/snow.svg';
-        }
-        else if (weather["id"] < 800) {
-            tempIcon.src = './icons/atmosphere.svg';
-        }
-        else if (weather["id"] == 800) {
-            tempIcon.src = './icons/sun.svg';
-        }
-        else if (weather["id"] > 800) {
-            tempIcon.src = './icons/clouds.svg';
+        if (cityName == "") {
+            let alert =  document.getElementById('alert');
+            alert.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>City Name!</strong> You not check temperature before put city name.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>`
+            setTimeout(() => {
+                alert.innerHTML = "";
+              console.log("Tushar")
+            }, 5000);
+        }else{
+            showcityName.innerHTML = cityName;
+            showTemp.innerText = `${tempinCelsius}°C`;
+            showweather.innerText = `${weather["main"]}`;
+            if (weather["id"] < 250) {
+                tempIcon.src = './icons/storm.svg';
+            }
+            else if (weather["id"] < 350) {
+                tempIcon.src = './icons/drizzle.svg';
+            }
+            else if (weather["id"] < 550) {
+                tempIcon.src = './icons/rain.svg';
+            }
+            else if (weather["id"] < 650) {
+                tempIcon.src = './icons/snow.svg';
+            }
+            else if (weather["id"] < 800) {
+                tempIcon.src = './icons/atmosphere.svg';
+            }
+            else if (weather["id"] == 800) {
+                tempIcon.src = './icons/sun.svg';
+            }
+            else if (weather["id"] > 800) {
+                tempIcon.src = './icons/clouds.svg';
+            }
+            
         }
     });
     city.value = "";
